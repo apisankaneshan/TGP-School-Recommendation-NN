@@ -1,10 +1,10 @@
 import numpy as np
 from keras.models import load_model
 
-UNIVERSITIES = ['uoft', 'waterloo', 'mcmaster', 'ubc', 'queens', 'western', 'mcgill', 'ottawa', 'york', 'toronto-met', 'carleton', 'guelph']
+UNIVERSITIES = ['cc', 'gb', 'hp', 'ocad', 'tmu', 'ugh', 'uoft', 'utm', 'utsc', 'utsg', 'yu_g', 'yu_k']
 
 def normalize_array(array):
-    normalized_array = [((val - 1) / (4)) for val in array]
+    normalized_array = [((val - 0) / (5)) for val in array]
     return normalized_array
 
 def apply_one_hot_encoding(array):
@@ -17,7 +17,7 @@ def apply_one_hot_encoding(array):
 model = load_model('TGP_School_Recommendation_NN.keras')
 
 # numerical_cols = ['reputation', 'opportunities', 'safety', 'happiness', 'internet', 'location', 'facilities', 'clubs', 'food', 'social']
-my_preferences = [5, 5, 2, 3, 3, 2, 1, 5, 5, 5]
+my_preferences = [5, 5, 1, 2, 3, 2, 3, 5, 5, 5]
 
 normalized_preferences = normalize_array(my_preferences)
 preferences = np.array(normalized_preferences)
